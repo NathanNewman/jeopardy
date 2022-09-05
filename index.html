@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Jeopardy</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Copse&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="jeopardy.css" />
+  </head>
+  <body>
+    <h1><b>Jeopardy</b></h1>
+
+    <p>
+      Jeopardy is a quiz competion. Competitor's are asked to select clue's
+      orangized by categories. Each clue has a $ value. The competitor's are
+      asked to answer each clue starting with the phrase "what is..." In this
+      version of Jeopardy you will be given a game board with categories and $
+      values. Click the $ values to reveal the clue. State your answer, then
+      click the clue to reveal the answer to see if you answered correct.
+    </p>
+    <p>
+      If playing with friends, have each friend give an answer with the first
+      friend to answer being given the highest priority. Then click the clue to
+      reveal the answer. The first correct answer wins the point total of the
+      clue. (you'll have to keep track of scores yourself) The winner of each
+      clue selects the next clue to reveal. The one with the most points in the
+      end is the game winner.
+    </p>
+    <p>Please click the start button to begin!</p>
+    <table id="jeopardy">
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+
+    <button id="start-game">Start Game</button>
+    <div
+      style="width: 100%; height: 0; padding-bottom: 100%; position: relative"
+    >
+      <iframe
+        src="https://giphy.com/embed/3j7LjV0ZLiR9bV0DoK"
+        width="40%"
+        height="40%"
+        style="position: absolute"
+        frameborder="0"
+        class="giphy-embed"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <p>
+      <a href="https://giphy.com/gifs/now-loading-3j7LjV0ZLiR9bV0DoK"
+        >via GIPHY</a
+      >
+    </p>
+
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="https://unpkg.com/lodash"></script>
+    <script src="jeopardy.js"></script>
+  </body>
+</html>
