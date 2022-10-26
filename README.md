@@ -1,0 +1,1 @@
+This is Jeopardy game made using HTML, CSS, and JavaScript. It accesses an API to get Jeopardy questions and answers.

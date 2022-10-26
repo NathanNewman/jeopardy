@@ -7,10 +7,8 @@ let startButtonClicked = false;
 
 // gets an array of category ids from API
 async function getCategoryIds() {
-  const response = await axios.get(
-    "https://jservice.io/api/categories?count=100"
-  );
   const catArray = [];
+  response = await axios.get("https://jservice.io/api/categories?count=100");
   for (index of response.data) {
     catArray.push(index.id);
   }
@@ -62,7 +60,9 @@ async function fillTable() {
     const clueValue = (clueIdx + 1) * 200;
     for (let catIdx = 0; catIdx < numCat; catIdx++) {
       tableBodyRow.append(
-        $("<td>").attr("id", `${catIdx}-${clueIdx}`).text(`$${clueValue}`)
+        $("<td>")
+          .attr("id", `${catIdx}-${clueIdx}`)
+          .append(`<h3>$${clueValue}</h3>`)
       );
     }
     $("#jeopardy tbody").append(tableBodyRow);
@@ -70,9 +70,8 @@ async function fillTable() {
 }
 
 // Click event for gameboard
-$("tbody").on("click", function (evt) {
-  const target = evt.target.id;
-  const id = target.split("-");
+function clickEvent(targetId) {
+  const id = targetId.split("-");
   const catId = id[0];
   const clueId = id[1];
   let clue = categories[catId].clues[clueId];
@@ -92,7 +91,19 @@ $("tbody").on("click", function (evt) {
 
   // Update text of cell
   $(`#${catId}-${clueId}`).html(msg);
+}
+
+$("tbody").on("click", function(evt){
+  target = evt.target;
+  targetId = target.closest("td").id;
+  return clickEvent(targetId);
 });
+
+// $("tbody").on("click", "h3", function (evt) {
+//   target = evt.target;
+//   console.log(target);
+//   // clickEvent(parent);
+// });
 
 function showLoadingView() {
   $("iframe").show();
